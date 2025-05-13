@@ -1,13 +1,15 @@
 import express from 'express';
-import router from './routes';
+import router from './src/routes';
+import { authenticateDB } from './src/sequelize';
+import 'reflect-metadata';
 
 const app = express();
 app.use(express.json());
 app.use(router);
 
-const PORT = 3000;
-app.listen(PORT, () => {
-  console.log(`Servidor rodando na porta ${PORT}`);
+authenticateDB().then(() => {
+  const PORT = 8088;
+  app.listen(PORT, () => {
+    console.log(`Servidor rodando na porta ${PORT}`);
+  });
 });
-
-//assim que se cria o servidor.

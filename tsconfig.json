@@ -1,7 +1,10 @@
 {
     "compilerOptions": {
+      "esModuleInterop": true,
+      "target": "es2020",
+      "module": "commonjs",
+      "outDir": "./dist",
       "experimentalDecorators": true,
       "emitDecoratorMetadata": true,
-      "useDefineForClassFields": false
     }
   }
